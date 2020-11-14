@@ -25,7 +25,7 @@ RUN	apt install -y 	php7.3-bcmath php7.3-bz2 php7.3-cli php7.3-common \
 					php7.3-intl php7.3-ldap php7.3-mbstring  \
 					php7.3-mysql php7.3-odbc php7.3-pgsql php7.3-recode \
 					php7.3-snmp php7.3-soap php7.3-sqlite php7.3-tidy \
-					php7.3-xml php7.3-xmlrpc php7.3-xsl php7.3-zip
+					php7.3-xml php7.3-xmlrpc php7.3-xsl php7.3-zip php7.3-xdebug
 
 # Create user and assign to web server group
 #RUN adduser magento
@@ -49,7 +49,6 @@ RUN a2enmod rewrite ; \
 RUN update-alternatives --set php /usr/bin/php7.3 ; \
 	a2dismod php7.0 ; a2enmod php7.3 ; service apache2 restart
 
-#COPY ./conf/php.ini /etc/php/7.1/apache2/php.ini
 COPY ./conf/php.ini /etc/php/7.3/apache2/php.ini
 
 # MySQL
